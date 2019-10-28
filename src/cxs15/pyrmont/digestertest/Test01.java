@@ -1,4 +1,4 @@
-package src.cxs15.pyrmont.digestertest;
+package cxs15.pyrmont.digestertest;
 
 import java.io.File;
 import org.apache.commons.digester.Digester;
@@ -10,8 +10,8 @@ public class Test01 {
     File file = new File(path, "employee1.xml");
     Digester digester = new Digester();
     // add rules
-    digester.addObjectCreate("employee", "Employee");
-    digester.addSetProperties("employee");    
+    digester.addObjectCreate("employee", "cxs15.pyrmont.digestertest.Employee");
+    digester.addSetProperties("employee");
     digester.addCallMethod("employee", "printName");
 
     try {

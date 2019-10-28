@@ -15,6 +15,7 @@ public class ModernServlet extends HttpServlet {
     
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
+    out.println("HTTP/1.1 200 ok\r\n");
     out.println("<html>");
     out.println("<head>");
     out.println("<title>Modern Servlet</title>");

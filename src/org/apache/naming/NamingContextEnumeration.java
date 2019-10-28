@@ -77,7 +77,7 @@ import javax.naming.NameClassPair;
  * @version $Revision: 1.1 $ $Date: 2000/11/02 06:14:16 $
  */
 
-public class NamingContextEnumeration 
+public class NamingContextEnumeration
     implements NamingEnumeration {
 
 
@@ -85,12 +85,12 @@ public class NamingContextEnumeration
 
 
     public NamingContextEnumeration(Vector entries) {
-        enum = entries.elements();
+        enums = entries.elements();
     }
 
 
-    public NamingContextEnumeration(Enumeration enum) {
-        this.enum = enum;
+    public NamingContextEnumeration(Enumeration enums) {
+        this.enums = enums;
     }
 
 
@@ -98,16 +98,16 @@ public class NamingContextEnumeration
 
 
     /**
-     * Underlying enumeration.
+     * Underlying enumseration.
      */
-    protected Enumeration enum;
+    protected Enumeration enums;
 
 
     // --------------------------------------------------------- Public Methods
 
 
     /**
-     * Retrieves the next element in the enumeration.
+     * Retrieves the next element in the enumseration.
      */
     public Object next()
         throws NamingException {
@@ -116,11 +116,11 @@ public class NamingContextEnumeration
 
 
     /**
-     * Determines whether there are any more elements in the enumeration.
+     * Determines whether there are any more elements in the enumseration.
      */
     public boolean hasMore()
         throws NamingException {
-        return enum.hasMoreElements();
+        return enums.hasMoreElements();
     }
 
 
@@ -133,12 +133,12 @@ public class NamingContextEnumeration
 
 
     public boolean hasMoreElements() {
-        return enum.hasMoreElements();
+        return enums.hasMoreElements();
     }
 
 
     public Object nextElement() {
-        NamingEntry entry = (NamingEntry) enum.nextElement();
+        NamingEntry entry = (NamingEntry) enums.nextElement();
         return new NameClassPair(entry.name, entry.value.getClass().getName());
     }
 

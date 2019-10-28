@@ -70,7 +70,7 @@ import javax.naming.NamingException;
 import javax.naming.NamingEnumeration;
 
 /**
- * Naming enumeration implementation.
+ * Naming enumseration implementation.
  *
  * @author Remy Maucherat
  * @version $Revision: 1.1 $ $Date: 2001/01/23 03:41:29 $
@@ -99,16 +99,16 @@ public class RecyclableNamingEnumeration
 
 
     /**
-     * Underlying enumeration.
+     * Underlying enumseration.
      */
-    protected Enumeration enum;
+    protected Enumeration enums;
 
 
     // --------------------------------------------------------- Public Methods
 
 
     /**
-     * Retrieves the next element in the enumeration.
+     * Retrieves the next element in the enumseration.
      */
     public Object next()
         throws NamingException {
@@ -117,16 +117,16 @@ public class RecyclableNamingEnumeration
 
 
     /**
-     * Determines whether there are any more elements in the enumeration.
+     * Determines whether there are any more elements in the enumseration.
      */
     public boolean hasMore()
         throws NamingException {
-        return enum.hasMoreElements();
+        return enums.hasMoreElements();
     }
 
 
     /**
-     * Closes this enumeration.
+     * Closes this enumseration.
      */
     public void close()
         throws NamingException {
@@ -134,12 +134,12 @@ public class RecyclableNamingEnumeration
 
 
     public boolean hasMoreElements() {
-        return enum.hasMoreElements();
+        return enums.hasMoreElements();
     }
 
 
     public Object nextElement() {
-        return enum.nextElement();
+        return enums.nextElement();
     }
 
 
@@ -150,7 +150,7 @@ public class RecyclableNamingEnumeration
      * Recycle.
      */
     void recycle() {
-        enum = entries.elements();
+        enums = entries.elements();
     }
 
 
